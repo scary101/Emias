@@ -1,0 +1,10 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Brush x:Key="PrimaryBrush">#434343</Brush>
+    <Brush x:Key="SecondaryBackgroundBrush">#807F7F</Brush>
+    <Brush x:Key="PrimaryTextBrush">#FFFFFF</Brush>
+    <Brush x:Key="SecondaryTextBrush">#EDEDED</Brush>
+    <Brush x:Key="FocusBrush">#007BFE</Brush>
+    <Brush x:Key="AttentionBrush">#FE0000</Brush>
+    <BitmapImage x:Key="ButtonImage" UriSource="pack://application:,,,/Images/LightThemeIcon.png"/>
+</ResourceDictionary>

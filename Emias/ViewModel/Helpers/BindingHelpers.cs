@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Emias.ViewModel.Helpers
 {
-    internal class BindingHelpers : INotifyPropertyChanged
+    public class BindingHelpers : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
