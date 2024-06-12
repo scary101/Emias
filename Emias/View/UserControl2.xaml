@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="Emias.View.UserControl2"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Emias.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="63" d:DesignWidth="349">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="0*"/>
+        </Grid.RowDefinitions>
+        <TextBox Name="Fio"  Text="ivanov ivan ivanich" HorizontalAlignment="Center" VerticalAlignment="Top" Width="108" Height="16" />
+        <TextBox Name="vdata" Text="ближайщая дата" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,15,0,0" Height="20" Width="116"  />
+        <TextBox Name="data" Text="сегодня" Margin="5,35,214,10"  />
+        <TextBox Name="adres" Text="Адрес" Margin="228,21,3,10" />
+
+    </Grid>
+</UserControl>
