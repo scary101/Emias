@@ -12,13 +12,45 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Border Grid.Column="0" Background="{DynamicResource FocusBrush}">
-            <!-- Содержимое первой колонки -->
+        <Border Grid.Column="0" Background="{DynamicResource FocusBrush}" Grid.RowSpan="2">
+            <StackPanel VerticalAlignment="Top" HorizontalAlignment="Stretch" RenderTransformOrigin="0.5,0.5">
+                <StackPanel.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleX="0.472"/>
+                        <RotateTransform/>
+                        <TranslateTransform X="0.565"/>
+                    </TransformGroup>
+                </StackPanel.RenderTransform>
+
+                <Grid Margin="10,15,10,0" VerticalAlignment="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="ЕМИАС" Foreground="White" VerticalAlignment="Center" Margin="5,0" FontSize="24" FontWeight="Bold"/>
+                    <TextBlock Grid.Column="2" Text="в. 1.0" Foreground="White" VerticalAlignment="Center" Margin="5,0" FontSize="18" FontWeight="Bold"/>
+                    <Separator Grid.Row="1" Grid.ColumnSpan="3" Background="White" Height="2" VerticalAlignment="Center" Margin="0,5,0,0"/>
+                </Grid>
+
+                <TreeView Background="Transparent" ItemsSource="{Binding MenuItems}" BorderThickness="0" Margin="0,4,0,0" Height="173" SelectedItemChanged="TreeView_SelectedItemChanged">
+                    <TreeView.ItemTemplate>
+                        <HierarchicalDataTemplate ItemsSource="{Binding Items}">
+                            <TextBlock Text="{Binding Header}" Foreground="#FFFFFF" Margin="5,0" FontSize="16"/>
+                        </HierarchicalDataTemplate>
+                    </TreeView.ItemTemplate>
+                </TreeView>
+            </StackPanel>
         </Border>
 
-        <Border Grid.Column="1" Background="{DynamicResource PrimaryBrush}">
-            <!-- Содержимое второй колонки -->
+        <Border Grid.Column="1" Background="{DynamicResource PrimaryBrush}" Grid.RowSpan="2">
+            <Frame x:Name="PageFrame" NavigationUIVisibility="Hidden"/>
         </Border>
-
     </Grid>
 </Window>

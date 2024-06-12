@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Emias.Interfaces;
+using Emias.Model;
+using Emias.Service;
+using Emias.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +23,19 @@ namespace Emias.View
     /// </summary>
     public partial class MainUserWindow : Window
     {
+        private readonly INavigationService _navigationService;
         public MainUserWindow()
         {
             InitializeComponent();
+            _navigationService = new ServiceNavigation(PageFrame);
+            DataContext = new MainUserViewModel(_navigationService);
+        }
+        private void TreeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            if (DataContext is MainUserViewModel viewModel && e.NewValue is UserTreeViewItem selectedItem)
+            {
+                viewModel.TreeViewSelectItemCommand.Execute(selectedItem);
+            }
         }
     }
 }

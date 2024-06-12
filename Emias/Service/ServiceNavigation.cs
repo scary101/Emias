@@ -49,6 +49,18 @@ namespace Emias.Service
                     return typeof(AdminLoginPage);
                 case "UserLogin":
                     return typeof(UserLoginPage);
+                case "AnalysisUserPage":
+                    return typeof(AnalysisUserPage);
+                case "AppointmentUserPage":
+                    return typeof(AppointmentUserPage);
+                case "DoctorChoiceUserPage":
+                    return typeof(DoctorChoiceUserPage);
+                case "ProfileUserPage":
+                    return typeof(ProfileUserPage);
+                case "ResearchesUserPage":
+                    return typeof(ResearchesUserPage);
+                case "MainMenuUserPage":
+                    return typeof(MainMenuUserPage);
                 default:
                     return null;
             }
