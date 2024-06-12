@@ -1,4 +1,7 @@
-﻿using Emias.Interfaces;
+﻿
+using Emias.Interfaces;
+using Emias.Model;
+using Emias.Service;
 using Emias.View;
 using Emias.ViewModel.Helpers;
 using System;
@@ -14,6 +17,7 @@ namespace Emias.ViewModel
     {
         public RelayCommand OpenUserLoginPage { get; set; }
         public RelayCommand OpenAdminWindow { get; set; }
+        private List<Admin> _admims;
         private readonly INavigationService _navigationService;
 
         private string _id = "Номер сотрудника";
@@ -38,6 +42,7 @@ namespace Emias.ViewModel
 
         public AdminLoginViewModel(INavigationService navigationService)
         {
+            LoadAdmins();
             _navigationService = navigationService ?? throw new ArgumentNullException(nameof(navigationService));
             OpenUserLoginPage = new RelayCommand(_ => OpenUserPage());
             OpenAdminWindow = new RelayCommand(_ => OpenAdmin());
@@ -49,12 +54,23 @@ namespace Emias.ViewModel
         }
         public void OpenAdmin()
         {
-            if (ValidationData.ValidateAdminID(ID) && ValidationData.ValidatePassword(Pass))
+            var idExists = _admims.Any(obj => obj.IdAdmin == Convert.ToInt32(ID));
+
+            if (idExists && ValidationData.ValidateAdminID(ID) && ValidationData.ValidatePassword(Pass))
             {
-                var newWindow = new MainAdminWindow();
-                newWindow.Show();
-                Window currentWindow = Application.Current.MainWindow;
-                currentWindow.Close();
+                var admin = _admims.First(obj => obj.IdAdmin == Convert.ToInt32(ID));
+                if (admin.EnterPassword == Pass)
+                {
+                    var newWindow = new MainAdminWindow();
+                    newWindow.Show();
+                    Window currentWindow = Application.Current.MainWindow;
+                    currentWindow.Close();
+                }
+                else
+                {
+                    IsPolisInvalid = true;
+                    Pass = "Неверный логин или пароль!";
+                }
             }
             else
             {
@@ -62,5 +78,13 @@ namespace Emias.ViewModel
                 Pass = "Неверный логин или пароль!";
             }
         }
+
+        private async Task LoadAdmins()
+        {
+            var apiService = new ApiService();
+            var admins = await apiService.GetDataAsync<Admin>("api/Admins");
+            _admims = admins;
+        }
+
     }
 }
