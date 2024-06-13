@@ -1,4 +1,4 @@
-﻿
+﻿using API6.Models;
 using Emias.Interfaces;
 using Emias.Model;
 using Emias.Service;
@@ -54,9 +54,14 @@ namespace Emias.ViewModel
         }
         public void OpenAdmin()
         {
-            var idExists = _admims.Any(obj => obj.IdAdmin == Convert.ToInt32(ID));
+            Admin idExists = null;
+            try
+            {
+                idExists = _admims.FirstOrDefault(obj => obj.IdAdmin == Convert.ToInt32(ID));
+            }
+            catch { }
 
-            if (idExists && ValidationData.ValidateAdminID(ID) && ValidationData.ValidatePassword(Pass))
+            if (idExists != null && ValidationData.ValidateAdminID(ID) && ValidationData.ValidatePassword(Pass))
             {
                 var admin = _admims.First(obj => obj.IdAdmin == Convert.ToInt32(ID));
                 if (admin.EnterPassword == Pass)

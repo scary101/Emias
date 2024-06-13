@@ -1,4 +1,5 @@
-﻿using Emias.Model;
+﻿using Emias.Interfaces;
+using Emias.Model;
 using Emias.Service;
 using Emias.ViewModel;
 using System;
@@ -18,17 +19,16 @@ using System.Windows.Shapes;
 
 namespace Emias.View
 {
-    /// <summary>
-    /// Логика взаимодействия для DoctorChoiceUserPage.xaml
-    /// </summary>
-    public partial class DoctorChoiceUserPage : Page
+    public partial class CardVrachUserControl : UserControl
     {
-        private ServiceNavigation _navigationService;
+        private INavigationService _navigationService;
 
-        public DoctorChoiceUserPage(SelectVrachCardType vrachType)
+        public CardVrachUserControl(INavigationService navigationService, SelectVrachCard card)
         {
             InitializeComponent();
-            DataContext = new DoctorChoiceUserPageVM(_navigationService, vrachType);
+            _navigationService = navigationService;
+            DataContext = new CardVrachUSViewLogin(card, _navigationService);
+            
         }
     }
 }

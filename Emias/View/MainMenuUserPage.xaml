@@ -5,10 +5,25 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Emias.View"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="500" d:DesignWidth="750"
       Title="MainMenuUserPage">
 
-    <Grid>
-        
+    <Grid Margin="0,0,0,380">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" MinHeight="35"/>
+            <!-- Заголовок или другие элементы, которые могут иметь фиксированную высоту -->
+            <RowDefinition/>
+            <!-- Основное содержимое, которое будет растягиваться -->
+        </Grid.RowDefinitions>
+        <ListBox Style="{StaticResource CustomListBoxStyle}" 
+                ItemsSource="{Binding VrachCards}" 
+                 Grid.Row="1" VerticalAlignment="Top" Height="80" Width="Auto">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+        </ListBox>
+
     </Grid>
 </Page>

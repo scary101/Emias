@@ -9,6 +9,7 @@
       Title="DoctorChoiceUserPage">
 
     <Grid>
-        
+        <TextBox FontSize="100" HorizontalAlignment="Left" Margin="95,85,0,0" TextWrapping="Wrap" Text="{Binding VrachType}" VerticalAlignment="Top" Width="540" Height="225"/>
+
     </Grid>
 </Page>

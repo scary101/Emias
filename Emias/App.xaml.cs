@@ -1,4 +1,5 @@
-﻿using System.Configuration;
+﻿using API6.Models;
+using System.Configuration;
 using System.Data;
 using System.Windows;
 
@@ -34,6 +35,8 @@ namespace Emias
                 Current.Resources.MergedDictionaries.Insert(1, dict);
             }
         }
+
+        public static Patient Patient;
 
         public App()
         {

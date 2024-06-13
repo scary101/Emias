@@ -27,8 +27,9 @@ namespace Emias.View
         public MainUserWindow()
         {
             InitializeComponent();
+            MainUserWindow win = this;
             _navigationService = new ServiceNavigation(PageFrame);
-            DataContext = new MainUserViewModel(_navigationService);
+            DataContext = new MainUserViewModel(_navigationService, win);
         }
         private void TreeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
@@ -37,5 +38,12 @@ namespace Emias.View
                 viewModel.TreeViewSelectItemCommand.Execute(selectedItem);
             }
         }
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ButtonState == MouseButtonState.Pressed)
+                this.DragMove();
+        }
+
     }
 }
+

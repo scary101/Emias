@@ -12,6 +12,17 @@
   <ItemGroup>
     <None Remove="Images\DarkThemeIcon.png" />
     <None Remove="Images\LightThemeIcon.png" />
+    <None Remove="Images\molnya.png" />
+    <None Remove="Images\naushniki.png" />
+    <None Remove="Images\noga.png" />
+    <None Remove="Images\ochki.png" />
+    <None Remove="Images\shpric.png" />
+    <None Remove="Images\svitok.png" />
+    <None Remove="Images\urolog.png" />
+    <None Remove="Images\Vector.png" />
+    <None Remove="Images\virus.png" />
+    <None Remove="Images\vrach.png" />
+    <None Remove="Images\zub.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,6 +38,39 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\LightThemeIcon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\molnya.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\naushniki.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\noga.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ochki.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\shpric.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\svitok.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\urolog.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Vector.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\virus.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\vrach.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\zub.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

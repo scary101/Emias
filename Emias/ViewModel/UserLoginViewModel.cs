@@ -1,8 +1,11 @@
-﻿using Emias.Interfaces;
+﻿using API6.Models;
+using Emias.Interfaces;
+using Emias.Service;
 using Emias.View;
 using Emias.ViewModel.Helpers;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +17,7 @@ namespace Emias.ViewModel
     {
         public RelayCommand OpenAdminLoginPage {  get; set; }
         public RelayCommand OpenMainUserWindow { get; set; }
+        private List<Patient> patients;
         private bool _isPolisInvalid;
         public bool IsPolisInvalid
         {
@@ -31,6 +35,7 @@ namespace Emias.ViewModel
         }
         public UserLoginViewModel(INavigationService navigationService)
         {
+            LoadPatient();
             _navigationService = navigationService ?? throw new ArgumentNullException(nameof(navigationService));
             OpenAdminLoginPage = new RelayCommand(_ => OpenAdminPage());
             OpenMainUserWindow = new RelayCommand(_ => OpenUserWindow());
@@ -42,8 +47,17 @@ namespace Emias.ViewModel
         }
         public void OpenUserWindow()
         {
-            if (ValidationData.ValidatePolis(Polis))
+            Patient pat = null;
+            try
             {
+                pat = patients.FirstOrDefault(i => i.Oms == Convert.ToInt64(Polis));
+            }
+            catch { }
+
+
+            if (ValidationData.ValidatePolis(Polis) && pat != null)
+            {
+                App.Patient = pat;
                 var newWindow = new MainUserWindow();
                 newWindow.Show();
                 Window currentWindow = Application.Current.MainWindow;
@@ -55,5 +69,11 @@ namespace Emias.ViewModel
                 Polis = "Не верный номер полиса!";
             }
         }
+        private async Task LoadPatient()
+        {
+            var apiService = new ApiService();
+            var patinets = await apiService.GetDataAsync<Patient>("api/Patients");
+            this.patients = patinets;
+        } 
     }
 }

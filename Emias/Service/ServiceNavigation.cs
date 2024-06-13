@@ -1,4 +1,5 @@
 ﻿using Emias.Interfaces;
+using Emias.Model;
 using Emias.View;
 using System;
 using System.Collections.Generic;
@@ -38,6 +39,16 @@ namespace Emias.Service
             if (_frame.CanGoBack)
             {
                 _frame.GoBack();
+            }
+        }
+
+        public void NavigateToPageWhitchStringData(SelectVrachCardType userData)
+        {
+            var pageType = typeof(DoctorChoiceUserPage);
+            if (pageType != null)
+            {
+                var pageInstance = Activator.CreateInstance(pageType, userData) as Page;
+                _frame.Navigate(pageInstance);
             }
         }
 
