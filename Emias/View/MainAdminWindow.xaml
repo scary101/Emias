@@ -1,0 +1,53 @@
+﻿<Window x:Class="Emias.View.MainAdminWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Emias.View" xmlns:viewmodel="clr-namespace:Emias.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:AdminWidnow}"
+        mc:Ignorable="d"
+        Title="MainAdminWindow" Height="450" Width="800">
+    <Grid>
+        
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition/>
+          
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Button  Background="#007BFE" Content="Вывести" Grid.Column="0" Grid.Row="0" Command="{Binding Vuvuod_v_datagrid}"/>
+        <TextBox HorizontalAlignment="Center" Background="{DynamicResource PrimaryBrush}" FontSize="16" BorderBrush="{DynamicResource SecondaryTextBrush}" Foreground="{DynamicResource SecondaryTextBrush}" TextWrapping="Wrap" Text="{Binding NameofTable}" VerticalAlignment="Center" Width="330" Grid.Column="1" Grid.Row="0" Height="24">
+            <TextBox.Style>
+                <Style TargetType="TextBox">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsPolisInvalid}" Value="True">
+                            <Setter Property="Background" Value="#F2B5B5" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBox.Style>
+        </TextBox>
+        <TextBox HorizontalAlignment="Stretch" Background="{DynamicResource PrimaryBrush}" FontSize="16" BorderBrush="{DynamicResource SecondaryTextBrush}" Foreground="{DynamicResource SecondaryTextBrush}" TextWrapping="Wrap" Text="{Binding Second_TextBox}" VerticalAlignment="Center" Width="500" Grid.Column="1" Grid.Row="1" Height="24">
+            <TextBox.Style>
+                <Style TargetType="TextBox">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsPolisInvalid}" Value="True">
+                            <Setter Property="Background" Value="#F2B5B5" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBox.Style>
+        </TextBox>
+        <DataGrid x:Name="dataGrid" Grid.Row="2" Grid.Column="1" Grid.RowSpan="2" ItemsSource="{Binding Data, Mode=TwoWay}" AutoGenerateColumns="True" SelectedItem="{Binding SelectedItem, Mode=TwoWay}"  />
+        <Button  Background="#007BFE" Content="Добавить " Grid.Column="0" Grid.Row="1" Command="{Binding AddNew}"/>
+        <Button  Background="#007BFE" Content="Удалить" Grid.Column="0" Grid.Row="2" Command="{Binding Delete_po_id}"/>
+        <Button  Background="#007BFE" Content="Изменить" Grid.Column="0" Grid.Row="3" Command="{Binding Update}"/>
+    </Grid>
+</Window>
