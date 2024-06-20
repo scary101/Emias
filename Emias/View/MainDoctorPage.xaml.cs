@@ -1,5 +1,4 @@
-﻿using Emias.ViewModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,21 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Emias.View
 {
     /// <summary>
-    /// Логика взаимодействия для MainAdminWindow.xaml
+    /// Логика взаимодействия для MainDoctorPage.xaml
     /// </summary>
-    public partial class MainAdminWindow : Window
+    public partial class MainDoctorPage : Page
     {
-        public MainAdminWindow()
+        public MainDoctorPage()
         {
             InitializeComponent();
-            DataContext = new ();
         }
-       
-
     }
 }

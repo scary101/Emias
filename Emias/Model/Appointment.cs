@@ -13,7 +13,8 @@ namespace API6.Models
         public DateTime AppointmentDate { get; set; }
         public TimeSpan AppointmentTime { get; set; }
         public int? IdStatus { get; set; }
+        public string Status { get; set; }
 
-        
+
     }
 }

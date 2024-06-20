@@ -1,4 +1,12 @@
-﻿using Emias.ViewModel;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using Emias.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,16 +24,15 @@ using System.Windows.Shapes;
 namespace Emias.View
 {
     /// <summary>
-    /// Логика взаимодействия для MainAdminWindow.xaml
+    /// Логика взаимодействия для MainDoctorWindow.xaml
     /// </summary>
-    public partial class MainAdminWindow : Window
+    public partial class MainDoctorWindow : Window
     {
-        public MainAdminWindow()
+        public MainDoctorWindow()
         {
             InitializeComponent();
-            DataContext = new ();
+            DataContext = new DoctorWidnow();
+            
         }
-       
-
     }
 }
