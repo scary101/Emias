@@ -1,4 +1,5 @@
 ﻿<Page x:Class="Emias.View.ProfileUserPage"
+      xmlns:card="clr-namespace:Emias.View"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -8,7 +9,40 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ProfileUserPage">
 
-    <Grid>
-        
+    <Grid Margin="0,20,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="114*"/>
+            <ColumnDefinition Width="125*"/>
+            <ColumnDefinition Width="161*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="33*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="22*"/>
+            <RowDefinition Height="23*"/>
+            <RowDefinition Height="26*"/>
+            <RowDefinition Height="23*"/>
+            <RowDefinition Height="112*"/>
+            <RowDefinition Height="30*"/>
+        </Grid.RowDefinitions>
+        <local:ProfileCardView Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="5" Margin="0,0,0,22"/>
+        <TextBox Name="Nomer" Text="+7 999 999-99-99"  Grid.Column="2" Grid.Row="0" Margin="10,10,10,3"  />
+        <TextBox Name="email" Text="example@example.com" Margin="10,10,10,10" Grid.Row="1" Grid.Column="2"/>
+        <TextBox Name="Propiska" Text="г. Москва, Нахимовский пр. д. 21" Margin="10,10,10,27" Grid.Row="2" Grid.Column="2"/>
+        <TextBox Name="adres" Text="г. Москва, Нахимовский пр. д. 21" Margin="10,60,55,21" Grid.Row="2" Grid.Column="2" Grid.RowSpan="2"/>
+        <TextBox Name="Tema" Text="Тема приложения:" Margin="10,60,105,1" Grid.Row="3" Grid.Column="0" Background= "Transparent" BorderThickness="0"  Foreground = "{DynamicResource SecondaryTextBrush}" Grid.RowSpan="2"/>
+        <ListBox Margin="10,0,10,1" Grid.Row="5" Grid.ColumnSpan="3">
+            <ListBoxItem>Светлая</ListBoxItem>
+            <ListBoxItem>Темная</ListBoxItem>
+        </ListBox>
+        <TextBox Name="nomerzapisi" Text="+7 495 539-30-00" Margin="10,0,55,5" Grid.Row="6" Grid.ColumnSpan="2" Background= "Transparent" BorderThickness="0" Foreground="Blue" />
+        <TextBox Name="sluzbazapisi" Text="Единая служба записи, круглосуточно" Margin="10,0,10,5" Grid.Row="6" Grid.Column="2" Background= "Transparent" BorderThickness="0"/>
+        <TextBox Name="nomerpsycho" Text="+7 495 051" Margin="10,0,55,5" Grid.Row="7" Grid.ColumnSpan="2" Background= "Transparent" BorderThickness="0"  Foreground="Blue" />
+        <TextBox Name="psychohelp" Text="Единая служба психологической помощи, круглосуточно. Или позвоните по городскому на номер 051" Margin="10,0,10,5" Grid.Row="7" Grid.Column="2" Background= "Transparent" BorderThickness="0"/>
+        <Button Name="save" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Сохранить изменения" Grid.Row="9" Background= "{DynamicResource FocusBrush}"  Foreground="White" Width="202" Height="20"/>
+        <Button Name="new" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Добавить новый аккаунт" Grid.Row="9" Grid.Column="1" Background= "{DynamicResource FocusBrush}"  Foreground="White" Width="224" Height="20"/>
+        <Button Command="{Binding GoToLogin}" Name="exit" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Выйти из аккаунта" Grid.Row="9" Grid.Column="2"  Background= "{DynamicResource AttentionBrush}" Foreground="White" Width="282"  Height="20" />
     </Grid>
 </Page>

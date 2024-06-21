@@ -4,12 +4,135 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Emias.View"
+      xmlns:helpers="clr-namespace:Emias.ViewModel.Helpers"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="750" d:DesignWidth="950"
       Title="DoctorChoiceUserPage">
 
-    <Grid>
-        <TextBox FontSize="100" HorizontalAlignment="Left" Margin="95,85,0,0" TextWrapping="Wrap" Text="{Binding VrachType}" VerticalAlignment="Top" Width="540" Height="225"/>
+    <Page.Resources>
+        <helpers:BooleanToBrushConverter x:Key="BooleanToBrushConverter" TrueBrush="Blue" FalseBrush="LightGray"/>
+    </Page.Resources>
 
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="68*"/>
+            <ColumnDefinition Width="115*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="19*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="136*"/>
+            <RowDefinition Height="41*"/>
+            <RowDefinition Height="136*"/>
+            <RowDefinition Height="41*"/>
+            <RowDefinition Height="136*"/>
+            <RowDefinition Height="35*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Утро" Grid.Row="6" Grid.Column="2" FontWeight="Bold" Margin="10,4,10,7"/>
+        <ItemsControl Grid.Column="2" Grid.Row="6" ItemsSource="{Binding MorningSlots}" Margin="0,35,0,0" Grid.RowSpan="2">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Button Content="{Binding Time}"
+                            Command="{Binding DataContext.SelectTimeSlotCommand, RelativeSource={RelativeSource AncestorType=Page}}"
+                            CommandParameter="{Binding}"
+                            Width="60" Height="30" Margin="5"
+                            Background="{Binding IsSelected, Converter={StaticResource BooleanToBrushConverter}}"
+                            BorderBrush="LightGray" BorderThickness="1"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
+        <TextBlock Text="День" Grid.Column="2" Grid.Row="8" FontWeight="Bold" Margin="10,10,10,10"/>
+        <ItemsControl Grid.Column="2" Grid.Row="9" ItemsSource="{Binding DaySlots}" Margin="0,0,0,41" Grid.RowSpan="2">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Button Content="{Binding Time}"
+                            Command="{Binding DataContext.SelectTimeSlotCommand, RelativeSource={RelativeSource AncestorType=Page}}"
+                            CommandParameter="{Binding}"
+                            Width="60" Height="30" Margin="5"
+                            Background="{Binding IsSelected, Converter={StaticResource BooleanToBrushConverter}}"
+                            BorderBrush="LightGray" BorderThickness="1"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
+        <TextBlock Text="Вечер" Grid.Row="10" Grid.Column="2" FontWeight="Bold" Margin="10,10,10,10"/>
+        <ItemsControl Grid.Column="2" Grid.Row="11" ItemsSource="{Binding EveningSlots}" Margin="0,0,0,35" Grid.RowSpan="2">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Button Content="{Binding Time}"
+                            Command="{Binding DataContext.SelectTimeSlotCommand, RelativeSource={RelativeSource AncestorType=Page}}"
+                            CommandParameter="{Binding}"
+                            Width="60" Height="30" Margin="5"
+                            Background="{Binding IsSelected, Converter={StaticResource BooleanToBrushConverter}}"
+                            BorderBrush="LightGray" BorderThickness="1"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
+        <ItemsControl Grid.Column="2" Grid.Row="2" ItemsSource="{Binding CurrentWeekDays}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Button Content="{Binding Day}"
+                    Command="{Binding DataContext.SelectDaySlotCommand, RelativeSource={RelativeSource AncestorType=Page}}"
+                    CommandParameter="{Binding}"
+                    Width="60" Height="30" Margin="5"
+                    Background="{Binding IsSelected, Converter={StaticResource BooleanToBrushConverter}}"
+                    BorderBrush="LightGray" BorderThickness="1"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
+        <!-- Привязка дней следующей недели -->
+        <ItemsControl Grid.Column="2" Grid.Row="4" ItemsSource="{Binding NextWeekDays}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Button Content="{Binding Day}"
+                    Command="{Binding DataContext.SelectDaySlotCommand, RelativeSource={RelativeSource AncestorType=Page}}"
+                    CommandParameter="{Binding}"
+                    Width="60" Height="30" Margin="5"
+                    Background="{Binding IsSelected, Converter={StaticResource BooleanToBrushConverter}}"
+                    BorderBrush="LightGray" BorderThickness="1"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        <TextBlock Text="Текущая неделя" Foreground="{DynamicResource PrimaryTextBrush}" Grid.Row="1" Grid.Column="2" FontWeight="Bold" Margin="10,10,10,1"/>
+        <TextBlock Text="Следующая неделя" Foreground="{DynamicResource PrimaryTextBrush}" Grid.Row="3" Grid.Column="2" FontWeight="Bold" Margin="10,1,10,1"/>
+        <ListBox Grid.Column="1" Grid.Row="1" ItemsSource="{Binding Doctors}" Grid.RowSpan="11" SelectedItem="{Binding SelDoctor}"/>
+        <Button Command="{Binding ZapisZapis}" Grid.Column="2" Foreground="White" Background="{DynamicResource FocusBrush}" Content="Записаться"  Grid.Row="12" VerticalAlignment="Center" Height="24" Margin="40,0,45,0"/>
+
+        <Button Command="{Binding GoToMainMenu}" Grid.Column="1" Foreground="White" Background="{DynamicResource FocusBrush}" Content="Назад" HorizontalAlignment="Stretch"  Grid.Row="12" VerticalAlignment="Center" Height="24"/>
     </Grid>
 </Page>

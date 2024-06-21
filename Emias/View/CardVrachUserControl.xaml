@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Emias.View"
              mc:Ignorable="d" 
-             d:DesignHeight="55" d:DesignWidth="100">
+             d:DesignHeight="75" d:DesignWidth="120">
     <Grid>
         <Button Command="{Binding GoToZapis}" VerticalContentAlignment="Stretch"  Grid.RowSpan="2" Background="{DynamicResource PrimaryBrush}">
             <Button.Resources>
@@ -31,13 +31,13 @@
                 </Style>
             </Button.Resources>
             <Button.Content>
-                <Grid Height="55" Width="100">
+                <Grid Height="75" Width="120">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="32*"/>
                         <RowDefinition Height="23*"/>
                     </Grid.RowDefinitions>
-                    <TextBlock Grid.Row="1" HorizontalAlignment="Center" Foreground="{DynamicResource PrimaryTextBrush}" TextWrapping="Wrap" TextAlignment="Center" FontSize="12" Text="{Binding Text}" VerticalAlignment="Center" Width="96" Height="22"/>
-                    <Image HorizontalAlignment="Center" Height="24" VerticalAlignment="Center" Width="30" Source="{Binding ImagePath}"/>
+                    <TextBlock Grid.Row="1" HorizontalAlignment="Center" Foreground="{DynamicResource PrimaryTextBrush}" TextWrapping="Wrap" TextAlignment="Center" FontSize="12" Text="{Binding Text}" VerticalAlignment="Center" Width="100" Height="30"/>
+                    <Image HorizontalAlignment="Center" Height="40" VerticalAlignment="Center" Width="40" Source="{Binding ImagePath}"/>
                 </Grid>
             </Button.Content>
         </Button>

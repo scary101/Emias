@@ -1,4 +1,4 @@
-﻿using API6.Models;
+﻿ using API6.Models;
 using Emias.Interfaces;
 using Emias.Model;
 using Emias.View;
@@ -38,7 +38,7 @@ namespace Emias.ViewModel
             }
         }
 
-
+        public RelayCommand GoToProfile {  get; set; }
         public RelayCommand TreeViewSelectItemCommand { get; set; }
         public RelayCommand CloseWindow { get; set; }
         public RelayCommand MinimizeWindow { get; set; }
@@ -74,6 +74,7 @@ namespace Emias.ViewModel
             CloseWindow = new RelayCommand(_ => Close());
             MinimizeWindow = new RelayCommand(_ => Minimize());
             ChangeScreen = new RelayCommand(_ => FullScreen());
+            GoToProfile = new RelayCommand(_ => OpenProfile());
 
             TreeViewSelectItemCommand = new RelayCommand(CommandSelectedItemTreeview);
         }
@@ -126,6 +127,10 @@ namespace Emias.ViewModel
                 win.WindowState = WindowState.Normal;
 
             }
+        }
+        public void OpenProfile()
+        {
+            _navigationService.NavigateTo("ProfileUserPage");
         }
     }
 }

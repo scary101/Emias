@@ -23,12 +23,12 @@ namespace Emias.Model
 
     public  enum SelectVrachCardType
     {
-        Pediatr = 0,
-        Oftolmolog = 1,
-        Urolog = 2,
-        Stomatolog = 3,
-        Document = 4,
-        Dejurny = 5,
-        Travmotolog = 6
+        Pediatr = 1,
+        Oftolmolog = 2,
+        Urolog = 3,
+        Stomatolog = 4,
+        Document = 5,
+        Dejurny = 6,
+        Travmotolog = 7
     }
 }

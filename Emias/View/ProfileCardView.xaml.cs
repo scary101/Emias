@@ -1,6 +1,4 @@
-﻿using Emias.Model;
-using Emias.Service;
-using Emias.ViewModel;
+﻿using Emias.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,18 +17,14 @@ using System.Windows.Shapes;
 namespace Emias.View
 {
     /// <summary>
-    /// Логика взаимодействия для DoctorChoiceUserPage.xaml
+    /// Логика взаимодействия для ProfileCardView.xaml
     /// </summary>
-    public partial class DoctorChoiceUserPage : Page
+    public partial class ProfileCardView : UserControl
     {
-        private ServiceNavigation _navigationService;
-
-
-        public DoctorChoiceUserPage(ServiceNavigation navigationService, SelectVrachCardType vrachType)
+        public ProfileCardView()
         {
             InitializeComponent();
-            _navigationService = navigationService;
-            DataContext = new DoctorChoiceUserPageVM(_navigationService, vrachType);
+            DataContext = new ProfileCardViewModel();
         }
     }
 }

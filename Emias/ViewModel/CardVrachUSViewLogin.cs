@@ -41,7 +41,7 @@ namespace Emias.ViewModel
 
         private void OpenPageZapis()
         {
-            _navigationService.NavigateToPageWhitchStringData(_card.vrachType);
+            _navigationService.NavigateToPageWithStringData(_navigationService, _card.vrachType);
         }
     }
 }

@@ -1,7 +1,9 @@
 ﻿using API6.Models;
 using System.Configuration;
 using System.Data;
+using System.Net;
 using System.Windows;
+using Emias.View;
 
 namespace Emias
 {
@@ -41,7 +43,12 @@ namespace Emias
         public App()
         {
             InitializeComponent();
+
         }
+
+
+        
+
     }
 
 }

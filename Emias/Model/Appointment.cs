@@ -14,6 +14,17 @@ namespace API6.Models
         public TimeSpan AppointmentTime { get; set; }
         public int? IdStatus { get; set; }
 
-        
+        public Appointment()
+        {
+        }
+
+        public Appointment(long oms, int idDoctor, DateTime appointmentDate, TimeSpan appointmentTime, int? idStatus)
+        {
+            Oms = oms;
+            IdDoctor = idDoctor;
+            AppointmentDate = appointmentDate;
+            AppointmentTime = appointmentTime;
+            IdStatus = idStatus;
+        }
     }
 }

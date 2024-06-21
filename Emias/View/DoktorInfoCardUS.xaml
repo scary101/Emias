@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="Emias.Model.DoktorInfoCardUS"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Emias.Model"
+             mc:Ignorable="d" 
+             d:DesignHeight="75" d:DesignWidth="330">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock TextAlignment="Center" FontSize="16" Foreground="{DynamicResource PrimaryTextBrush}" HorizontalAlignment="Center" Grid.ColumnSpan="2" TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Center" Width="290"/>
+        <TextBlock HorizontalAlignment="Left"  Foreground="{DynamicResource SecondaryTextBrush}"  Grid.Row="1" TextWrapping="Wrap" Text="Ближайшая дата:" VerticalAlignment="Center" Width="100"/>
+        <TextBlock HorizontalAlignment="Left" Foreground="{DynamicResource SecondaryTextBrush}"  Grid.Row="2" TextWrapping="Wrap" Text="{Binding NearestDate}" VerticalAlignment="Center" Width="95"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Right" Foreground="{DynamicResource SecondaryTextBrush}" TextAlignment="Right"  TextWrapping="Wrap" Text="{Binding Adres}" VerticalAlignment="Center" Height="40" Grid.RowSpan="2" Grid.Row="1" Width="109"/>
+
+    </Grid>
+</UserControl>

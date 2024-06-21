@@ -1,4 +1,5 @@
 ﻿using Emias.Model;
+using Emias.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace Emias.Interfaces
     {
         void NavigateTo(string pageKey);
         void GoBack();
-        void NavigateToPageWhitchStringData(SelectVrachCardType vrach);
+        void NavigateToPageWithStringData(INavigationService navigationService, SelectVrachCardType vrach);
     }
 
 }

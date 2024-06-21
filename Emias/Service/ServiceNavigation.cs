@@ -42,13 +42,26 @@ namespace Emias.Service
             }
         }
 
-        public void NavigateToPageWhitchStringData(SelectVrachCardType userData)
+        public void NavigateToPageWithStringData(INavigationService navigationService, SelectVrachCardType userData)
         {
             var pageType = typeof(DoctorChoiceUserPage);
             if (pageType != null)
             {
-                var pageInstance = Activator.CreateInstance(pageType, userData) as Page;
+                var pageInstance = Activator.CreateInstance(pageType, navigationService, userData) as Page;
                 _frame.Navigate(pageInstance);
+            }
+        }
+        public void ReloadCurrentPage()
+        {
+            if (_frame.Content is Page currentPage)
+            {
+                var pageType = currentPage.GetType();
+                var pageInstance = Activator.CreateInstance(pageType, this) as Page;
+                _frame.Navigate(pageInstance);
+            }
+            else
+            {
+                throw new InvalidOperationException("No page is currently loaded.");
             }
         }
 
@@ -72,10 +85,13 @@ namespace Emias.Service
                     return typeof(ResearchesUserPage);
                 case "MainMenuUserPage":
                     return typeof(MainMenuUserPage);
+                case "ChoiseDoctorPage":
+                    return typeof(ChoiseDoctorPage);
                 default:
                     return null;
             }
         }
+
     }
 
 }

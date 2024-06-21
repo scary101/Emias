@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         WindowStyle="None"
         ResizeMode="CanResize"
-        Title="MainUserWindow" Height="550" Width="1000"
+        Title="MainUserWindow" Height="750" Width="1200"
         MouseLeftButtonDown="Window_MouseLeftButtonDown">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -62,7 +62,7 @@
                 <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center" Width="210" Height="25">
                     <TextBlock Text="Полис ОМС:" Foreground="White" FontSize="16" Margin="10,0"/>
                     <TextBlock Text="{Binding PatientName}" Foreground="White" FontSize="16" Margin="5,0"/>
-                    <Button Width="24" Height="24" Background="Transparent" BorderBrush="Transparent">
+                    <Button Command="{Binding GoToProfile}" Width="24" Height="24" Background="Transparent" BorderBrush="Transparent">
                         <Button.Template>
                             <ControlTemplate TargetType="Button">
                                 <Border Background="Transparent" BorderBrush="Transparent">
